@@ -80,12 +80,33 @@ session_start();
                         <div class="col-md-6">
                             <?php
                                 if (isset($_POST['add'])){
-                                $uname = $_POST ['uname'];
+                                $uname = $_POST['uname'];
                                 $password= $_POST['password'];
-                                $image=$_POST['img']['name'];
+                                $image=$_FILES['img']['name'];
 
                                 $error=array();
+                                if (empty($uname)){
+                                    $error['u']="Enter Admin Username";
+                                    
                                 }
+                                else if(empty($password)){
+                                    $error['u']="Enter Admin Password ";
+                                }
+                                else if(empty($image)){
+                                    $error['u']="Insert Admin Picture";
+                                }
+                                if (count($error)==0){
+                                    $q="INSERT INTO admin(username,password, profile) 
+                                    VALUES('uname','$password',''$image)";
+                                    $result=mysqli_query($connect,$q);
+                                    if ($result){
+                                        move_uploaded_file($_FILES['img']['tmp-name'],"img/$image"); 
+                                    }
+                                    
+                                }         
+                               }
+
+
                             ?>
                             <h5 class="text-center"> Add Admin</h5>
                             <form method = "post" enctype="multipart/form-data">
