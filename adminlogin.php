@@ -23,7 +23,7 @@ if (isset($_POST['login'])){
 
             header("Location:admin/index.php");
         }else{
-            echo "<script>alert('Invalid name and Password')</script>";    
+            echo "<script>alert('Invalid Name and Password')</script>";    
         }
     }
 }
