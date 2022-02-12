@@ -79,12 +79,13 @@ session_start();
                         </div>
                         <div class="col-md-6">
                             <?php
-                                if (isset($_POST['add']))
+                                if (isset($_POST['add'])){
                                 $uname = $_POST ['uname'];
                                 $password= $_POST['password'];
                                 $image=$_POST['img']['name'];
 
                                 $error=array();
+                                }
                             ?>
                             <h5 class="text-center"> Add Admin</h5>
                             <form method = "post" enctype="multipart/form-data">
