@@ -79,10 +79,13 @@ session_start();
                         </div>
                         <div class="col-md-6">
                             <?php
-                                if (isset($_POST['add'])){
-                                $uname = $_POST['uname'];
-                                $password= $_POST['password'];
-                                $image=$_FILES['img']['name'];
+                            if (isset($_POST['add'])) {
+                                   
+                                
+                                $uname = isset($POST['uname']) ? $POST['uname'] : '';
+                                $password = isset($POST['password']) ? $POST['password'] : '';
+                                $image = isset($_FILES['img']) ? $_FILES['name'] : '';
+                                
 
                                 $error=array();
                                 if (empty($uname)){
@@ -97,10 +100,12 @@ session_start();
                                 }
                                 if (count($error)==0){
                                     $q="INSERT INTO admin(username,password, profile) 
-                                    VALUES('uname','$password',''$image)";
+                                    VALUES('uname','$password','$image')";
                                     $result=mysqli_query($connect,$q);
                                     if ($result){
-                                        move_uploaded_file($_FILES['img']['tmp-name'],"img/$image"); 
+                                        move_uploaded_file($_FILES['img']['tmp_name'],"img/$image"); 
+                                    }else{
+
                                     }
                                     
                                 }         
@@ -119,7 +124,7 @@ session_start();
                                 <input type="password" name="pass" class="form-control">                                                       
                             </div>
                             <div class="form-group">
-                                <label>Admin Pciture</label>
+                                <label>Admin Picture</label>
                                 <input type="file" name="pass" class="form-control">                                                       
                             </div><br>
                             <input type="submit" name="add" value="Add new admin" class="btn btn-success">
