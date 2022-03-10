@@ -84,7 +84,7 @@ session_start();
                                 
                                 $uname = isset($POST['uname']) ? $POST['uname'] : '';
                                 $password = isset($POST['password']) ? $POST['password'] : '';
-                                $image = isset($_FILES['img']) ? $_FILES['name'] : '';
+                                $image = isset($_FILES['img']) ? $_FILES['img'] : '';
                                 
 
                                 $error=array();
@@ -121,11 +121,11 @@ session_start();
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="pass" class="form-control">                                                       
+                                <input type="password" name="password" class="form-control">                                                       
                             </div>
                             <div class="form-group">
                                 <label>Admin Picture</label>
-                                <input type="file" name="pass" class="form-control">                                                       
+                                <input type="file" name="img" class="form-control">                                                       
                             </div><br>
                             <input type="submit" name="add" value="Add new admin" class="btn btn-success">
                             </form>

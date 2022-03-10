@@ -15,12 +15,14 @@ session_start();
         include("../include/connection.php");
 
         $ad = $_SESSION['admin'];
-        $query = "SELECT * FROM admin WHERE username = '$ad'";
+        
+        $query = "SELECT * FROM admin WHERE username = '$ad' ";
         $res=mysqli_query($connect,$query);
 
         while($row=mysqli_fetch_array($res)){
             $username=$row['username'];
-            $profile=$row['profile'];
+           
+            
         }
             ?>
 
@@ -40,16 +42,27 @@ session_start();
                             <div class="col-md-6">              
                                 <h4><?php echo $username ;   ?>Profile</h4>
 
+                                <?php
+                                    if (isset($_POST['update'])){
+                                        
+                                    }
+                                ?>
+
                                 <form method="post" enctype="multipart/form-data">
                                 <?php 
-                                   echo " <img src='img/profile.png ' class='col-md-12'
+                                   echo " <img src='img/admin.png ' class='col-md-12'
                                     style='height:200px;' >";
                                 ?>
                                 </form>
                             </div>
-                            <div class="">
-
+                            <br><br>                            
+                            <div class="form-group">
+                                <label>UPDATE PROFILE</label>
+                                <input type="file"  name="profile" class=" form-control                             
+                                "  >
                             </div>
+                            <br>
+                            <input type="submit" name="update" value="UPDATE" class="btn btn-success">
                         </div>
                     </div>
                 </div>

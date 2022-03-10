@@ -34,7 +34,7 @@ include 'include/header.php';
                     <img src="img/doctor.png" >
 
                     <h5 class="text-center" >Vacancy for Doctors</h5>
-                    <a href="#">
+                    <a href="doctorslogin.php">
                         <button class="btn btn-success" style="margin-left :50%;" >Apply Now</button>
                     </a>
                 </div>                
