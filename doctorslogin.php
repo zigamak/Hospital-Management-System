@@ -31,7 +31,7 @@ include("include/header.php");
                         <input type="text" name="pass" class="form-control" autocomplete="off" placeholder="Enter Password">
                     </div>
                     <input type="submit" name="login" class="btn btn-success" value="Login">
-                    <p>Don't have an account? <a href="">Apply Now!!!</a></p>
+                    <p>Don't have an account? <a href="apply.php">Apply Now!!!</a></p>
                 </form>
             </div>
             <div class="col-md-3"></div>
