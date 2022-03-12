@@ -42,7 +42,7 @@ if(isset($_POST['apply'])){
             echo "<script>alert('You have successfully applied')</script>";
             header("Location: doctorlogin.php");
         }else{
-            echo "(<script>alert('')</script>)";
+            echo "(<script>alert('failed')</script>)";
         }
     }
 }
