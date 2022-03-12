@@ -1,3 +1,61 @@
+<?php
+include("include/connection.php");
+
+if(isset($_POST['apply'])){
+    $firstname=$_POST['fname'];
+    $surname=$_POST['sname'];
+    $username=$_POST['uname'];
+    $email=$_POST['email'];
+    $gender=$_POST['gender'];
+    $phone=$_POST['phone'];
+    $country=$_POST['country'];
+    $password=$_POST['pass'];
+    $confirm_password=$_POST['con_pass'];
+
+    $error= array();
+    if (empty($firstname)){
+        $error['apply'] = "Enter Firstname";
+    }else if (empty($surname)){
+        $error['apply'] = "Enter Surname";
+    }else if (empty($username)){
+        $error['apply'] = "Enter Username";
+    }else if (empty($email)){
+        $error['apply'] = "Enter Email";
+    }else if ($gender == ""){
+        $error['apply'] = "Select Your Gender";
+    }else if (empty($phone)){
+        $error['apply'] = "Enter Your Phone Number";
+    }else if ($country == ""){
+        $error['apply'] = "Select Country";
+    }else if (empty($password)){
+        $error['apply'] = "Enter password";
+    }else if ($confirm_password != $password){
+        $error['apply'] = "Both Passwords Do not Match";
+    }
+
+    if (count($error) == 0){
+        $query= "INSERT INTO doctors(firstname, surname, username, email, gender, phone, country, 
+        password, salary, data_reg, status, proflle) VALUES('$firstname', '$surname', '$username', '$email', '$gender',
+        '$phone', '$country', '$password', '0', NOW(), 'Pending', 'doctor.png'";
+        $result= mysqli_query($connect, $query);
+        if ($result){
+            echo "<script>alert('You have successfully applied')</script>";
+            header("Location: doctorlogin.php");
+        }else{
+            echo "(<script>alert('')</script>)";
+        }
+    }
+}
+if (isset($error['apply'])){
+    $s=$error['apply'];
+    $show = "<h5 class= 'text-center alert alert-danger'>$s</h5>";
+}else{
+    $show="";
+}
+
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +64,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor's Application Page</title>
 </head>
-<body style = "background-image:url(img/login.png);background-size:cover; background-repeat:no-repeat">
+<body>
     <?php
         include("include/header.php");
     ?>
@@ -17,6 +75,9 @@
                 <div col-md-3></div>
                 <div col-md-6 my-5 jumbotron>
                     <h5>Apply Now!!!</h5>
+                    <div>
+                        <?php echo $show; ?>
+                    </div>
                     <form method="post">
                         <div class="form-group">
                             <label>Firstname</label>
@@ -63,7 +124,7 @@
                             <input type="password" name="con_pass" autocomplete="off" class="form-control" placeholder="Confirm Password">
                         </div>
                         <input type="submit" name="apply" value="Apply Now" class="btn btn-success">
-                        <p>I already have an account <a href="doctorlogin.php">Login</a></p>
+                        <p>I already have an account <a href="doctorslogin.php">Login</a></p>
                     </form>
                 </div>
                 <div class="col-md-3"></div>
