@@ -35,8 +35,8 @@ if(isset($_POST['apply'])){
 
     if (count($error) == 0){
         $query= "INSERT INTO doctors(firstname, surname, username, email, gender, phone, country, 
-        password, salary, data_reg, status, proflle) VALUES('$firstname', '$surname', '$username', '$email', '$gender',
-        '$phone', '$country', '$password', '0', NOW(), 'Pending', 'doctor.png'";
+        password, salary, data_reg, status, proflle) VALUES('$firstname', '$surname', '$username',
+         '$email', '$gender','$phone', '$country', '$password', '0', NOW(), 'Pending', 'doctor.png'";
         $result= mysqli_query($connect, $query);
         if ($result){
             echo "<script>alert('You have successfully applied')</script>";
@@ -69,6 +69,7 @@ if (isset($error['apply'])){
         include("include/header.php");
     ?>
 
+
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="row">
@@ -93,7 +94,7 @@ if (isset($error['apply'])){
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="fname" class="form-control" autocomplete="off" placeholder="Enter Email">
+                            <input type="text" name="email" class="form-control" autocomplete="off" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
                             <label>Select Gender</label>
@@ -109,7 +110,7 @@ if (isset($error['apply'])){
                         </div>
                         <div class="form-group">
                             <label>Select Country</label>
-                            <select name="gender" >
+                            <select name="country" >
                                 <option value=""> Select Country</option>
                                 <option value="Russia">Russia</option>
                                 <option value="India">India</option>
