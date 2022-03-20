@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body style="background-image:url(img/login.php); background-image:no-repeat; background-size:cover;">
+    <body style="background-image:url(img/login.png); background-image:no-repeat; background-size:cover;">
     <?php
         include("include/header.php");
     ?>
@@ -18,6 +18,7 @@
                     
                 </div>
                 <div class="col-md-6 my-5">
+                
                     <h5 class="text-center my-3">Patient Login</h5>
                     <form method="post">
                         <div class="form-group">
