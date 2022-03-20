@@ -38,7 +38,7 @@
                 <li class="nav-item"><a href="index.php" class="nav-link text-white">Home</a></li>
                 <li class="nav-item"><a href="adminlogin.php" class="nav-link text-white">Admin</a></li>
                 <li class="nav-item"><a href="doctorslogin.php" class="nav-link text-white">Doctor</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white">Patient</a></li>
+                <li class="nav-item"><a href="patientlogin.php" class="nav-link text-white">Patient</a></li>
                 ';
             }
             ?>
